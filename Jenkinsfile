@@ -18,7 +18,7 @@ pipeline {
     stage('build') {
       steps {
         echo "Build"
-        pwd
+        sh 'pwd' 
         dir("/var/lib/jenkins/workspace/java-demo-pipeline") {
           sh 'mvn -B -DskipTests clean install'
         }
