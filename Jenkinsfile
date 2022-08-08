@@ -1,7 +1,7 @@
 pipeline {
   agent any
   tools {
-    maven "MAVEN"
+    maven "Maven"
     jdk "JDK"
   }
   environment {
@@ -31,10 +31,10 @@ pipeline {
          sh 'ls'
          sh 'cd target'
          sh 'ls target'
-        withAWS(region:'us-east-1',credentials:'aws') {
-          s3Upload(file:'/var/lib/jenkins/workspace/deployToS3/app.zip', bucket:'jenkins-test-javaupload')
+        withAWS(region:'ap-south-1',credentials:'a1cefe13-c0e3-416f-bf3f-6a6cd652fdb6') {
+          s3Upload(file:'/var/lib/jenkins/workspace/deployToS3/app.zip', bucket:'jenkinsdeploy1')
 //           sh '
-//           aws s3 cp ./target/demo-0.0.1-SNAPSHOT.jar s3://jenkins-test-javaupload/demo-0.0.1-SNAPSHOT.jar '
+//           aws s3 cp ./target/demo-0.0.1-SNAPSHOT.jar s3://jenkinsdeploy1/demo-0.0.1-SNAPSHOT.jar '
         }
       }
     }
